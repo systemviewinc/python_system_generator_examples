@@ -1,0 +1,27 @@
+kernel:
+  - name: reduce_%d
+    vendor_library_name_version: vsi.com:soft_ip:vsi_gen_ip:1.0
+    context: versal_aie
+    hierarchy: /versal_aie
+    type: hls
+    cname: aggregate
+    frequency: 100000000
+    source_dirs: $KERNEL_SRC_DIR
+    source_file: $KERNEL_SRC_DIR/aggregate.cc
+    thread_type: dedicated
+    interfaces:
+      - name: instream0
+        direction: input
+        access_type: streaming
+        type: pointer
+        max_packet_size: -1
+      - name: instream1
+        direction: input
+        access_type: streaming
+        type: pointer
+        max_packet_size: -1
+      - name: outstream
+        direction: output
+        access_type: streaming
+        type: pointer
+        max_packet_size: -1
