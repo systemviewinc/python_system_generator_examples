@@ -25,3 +25,4 @@ Example:
 
 - [Basic System Building](docs/basics.md)
 - [Automatate data movement with RDMA](docs/rdma_movement.md)
+- [Adding a double buffer with RDMA](docs/double_buffer.md)
