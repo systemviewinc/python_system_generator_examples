@@ -1,0 +1,34 @@
+kernel:
+  - name: stream_mux_blk
+    vendor_library_name_version: vsi.com:soft_ip:vsi_gen_ip:1.0
+    context: versal_fabric
+    hierarchy: /versal_fabric
+    type: hls
+    cname: stream_mux
+    frequency: 100000000
+    source_dirs: $HLS_SRC_DIR
+    include_dirs: $HLS_SRC_DIR
+    source_file: $HLS_SRC_DIR/stream_mux.cc
+    thread_type: dedicated
+    interfaces:
+      - name: in1
+        direction: input
+        access_type: streaming
+        type: reference
+        max_packet_size: 352
+        connects:
+        - aximm_to_aie_my_var:M00_AXIS
+      - name: in2
+        direction: input
+        access_type: streaming
+        type: reference
+        max_packet_size: 352
+        connects:
+        - aximm_to_aie_my_var:M04_AXIS
+      - name: outp
+        direction: output
+        access_type: streaming
+        type: reference
+        max_packet_size: 352
+        connects:
+        - aximm_to_aie_rec_var:S00_AXIS
